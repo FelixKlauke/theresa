@@ -1,2 +1,8 @@
 # theresa
 Blazingly intelligent and dynamic dependency injection framework built on google guice inspired by netflix governator providing lifecycle management and other fancy stuff we miss in guice.
+
+# Build Status
+|             	| Build Status                                                                                                                                              	| Test Code Coverage                                                                                                                                               	|
+|-------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------	|------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Master      	| [![Build Status](https://travis-ci.org/FelixKlauke/theresa.svg?branch=master)](https://travis-ci.org/FelixKlauke/theresa) 	| [![codecov](https://codecov.io/gh/FelixKlauke/theresa/branch/master/graph/badge.svg)](https://codecov.io/gh/FelixKlauke/theresa) 	|
+| Development 	| [![Build Status](https://travis-ci.org/FelixKlauke/theresa.svg?branch=dev)](https://travis-ci.org/FelixKlauke/theresa)    	| [![codecov](https://codecov.io/gh/FelixKlauke/theresa/branch/dev/graph/badge.svg)](https://codecov.io/gh/FelixKlauke/theresa)    	|
