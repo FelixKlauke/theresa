@@ -9,6 +9,7 @@ allprojects {
 
     apply plugin: 'java'
     apply plugin: 'maven'
+    apply plugin: 'jacoco'
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
@@ -68,7 +69,6 @@ task codeCoverageReport(type: JacocoReport) {
 
     executionData fileTree(project.rootDir.absolutePath)
             .include("**/build/jacoco/*.exec")
-            .exclude("**/example/**")
 
     // Add all relevant sourcesets from the subprojects
     subprojects.each {
