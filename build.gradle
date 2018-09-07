@@ -62,26 +62,29 @@ allprojects {
     test {
         useJUnitPlatform()
     }
+}
 
-    task codeCoverageReport(type: JacocoReport) {
-        executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
+task codeCoverageReport(type: JacocoReport) {
 
-        // Add all relevant sourcesets from the subprojects
-        subprojects.each {
-            sourceSets it.sourceSets.main
-        }
+    executionData fileTree(project.rootDir.absolutePath)
+            .include("**/build/jacoco/*.exec")
+            .exclude("**/example/**")
 
-        reports {
-            xml.enabled = true
-            xml.setDestination(new File("${buildDir}/reports/jacoco/report.xml"))
-            html.setEnabled(true)
-            html.setDestination(new File("${buildDir}/reports/jacoco/report.html"))
-        }
+    // Add all relevant sourcesets from the subprojects
+    subprojects.each {
+        sourceSets it.sourceSets.main
+    }
 
-        dependencies {
-            subprojects {
-                test
-            }
+    reports {
+        xml.enabled = true
+        xml.setDestination(new File("${buildDir}/reports/jacoco/report.xml"))
+        html.setEnabled(true)
+        html.setDestination(new File("${buildDir}/reports/jacoco/report.html"))
+    }
+
+    dependencies {
+        subprojects {
+            test
         }
     }
 }
