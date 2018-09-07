@@ -1,2 +1,8 @@
 rootProject.name = 'theresa'
+include 'core'
+findProject(':core')?.name = 'theresa-core'
+include 'lifecycle'
+findProject(':lifecycle')?.name = 'theresa-lifecycle'
+include 'example'
+findProject(':example')?.name = 'theresa-example'
 
