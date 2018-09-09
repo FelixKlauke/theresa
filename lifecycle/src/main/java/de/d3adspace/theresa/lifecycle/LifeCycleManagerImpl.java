@@ -46,6 +46,9 @@ public class LifeCycleManagerImpl implements LifeCycleManager {
             throw new IllegalStateException("Can't start life cycle from phase " + phaseReference.get());
         }
 
+        // Process warm up state
+        managedInstances.values().forEach(lifeCycle -> lifeCycle.processLifeCycleStateChange(LifeCycleState.WARM_UP));
+
         // Setup is complete, let the running phase begin
         phaseReference.set(LifeCycleManagerPhase.STARTED);
     }
