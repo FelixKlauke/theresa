@@ -18,6 +18,11 @@ public enum LifeCycleState {
     CONSTRUCTION,
 
     /**
+     * Warmup state is when the life cycle manager is started.
+     */
+    WARM_UP,
+
+    /**
      * Destruction state is when the instance is cleaned up.
      */
     DESTRUCTION
