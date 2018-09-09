@@ -2,6 +2,7 @@ package de.d3adspace.theresa.lifecycle;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import de.d3adspace.theresa.lifecycle.annotation.WarmUp;
 import de.d3adspace.theresa.lifecycle.state.LifeCycleState;
 
 import javax.annotation.PostConstruct;
@@ -78,11 +79,14 @@ class LifeCycle {
         if (declaredMethod.isAnnotationPresent(PostConstruct.class)) {
 
             addCallbackMethod(LifeCycleState.CONSTRUCTION, new MethodLifeCycleStateCallback(declaredMethod));
-        }
 
-        if (declaredMethod.isAnnotationPresent(PreDestroy.class)) {
+        } else if (declaredMethod.isAnnotationPresent(PreDestroy.class)) {
 
             addCallbackMethod(LifeCycleState.DESTRUCTION, new MethodLifeCycleStateCallback(declaredMethod));
+
+        } else if (declaredMethod.isAnnotationPresent(WarmUp.class)) {
+
+            addCallbackMethod(LifeCycleState.WARM_UP, new MethodLifeCycleStateCallback(declaredMethod));
         }
     }
 
