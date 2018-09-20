@@ -17,7 +17,7 @@ import java.util.Map;
  *
  * @author Felix Klauke <info@felix-klauke.de>
  */
-class LifeCycle {
+public class LifeCycle {
 
     /**
      * The instance this life cycle wrapper is operating on.
@@ -62,6 +62,15 @@ class LifeCycle {
     }
 
     /**
+     * Get the managed instance.
+     *
+     * @return The instance.
+     */
+    Object getHandle() {
+        return handle;
+    }
+
+    /**
      * Scan for callback actions and build up callback registry.
      */
     private void buildCallbackActions() {
@@ -72,6 +81,16 @@ class LifeCycle {
         for (Method declaredMethod : declaredMethods) {
             buildCallbackAction(declaredMethod);
         }
+    }
+
+    /**
+     * Get the current life cycle state.
+     *
+     * @return The life cycle state.
+     */
+    public LifeCycleState getLifeCycleState() {
+
+        return lifeCycleState;
     }
 
     private void buildCallbackAction(Method declaredMethod) {
