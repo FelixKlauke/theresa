@@ -4,6 +4,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 import de.d3adspace.theresa.lifecycle.LifeCycleManager;
+import de.d3adspace.theresa.lifecycle.listener.LifeCycleTransactionListener;
 import de.d3adspace.theresa.lifecycle.module.LifecycleModule;
 
 import java.util.logging.Logger;
@@ -58,5 +59,11 @@ public class TheresaImpl implements Theresa {
 
         logger.info("Stopping theresa life cycle.");
         lifeCycleManager.stopLifeCycle();
+    }
+
+    @Override
+    public void registerLifeCycleTransactionListener(LifeCycleTransactionListener lifeCycleTransactionListener) {
+
+        lifeCycleManager.registerLifeCycleTransactionListener(lifeCycleTransactionListener);
     }
 }

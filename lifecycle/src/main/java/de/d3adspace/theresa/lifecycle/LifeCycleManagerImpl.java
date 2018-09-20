@@ -1,9 +1,13 @@
 package de.d3adspace.theresa.lifecycle;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import de.d3adspace.theresa.lifecycle.listener.LifeCycleTransactionListener;
 import de.d3adspace.theresa.lifecycle.phase.LifeCycleManagerPhase;
 import de.d3adspace.theresa.lifecycle.state.LifeCycleState;
+import de.d3adspace.theresa.lifecycle.transaction.LifeCycleTransaction;
 
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -24,8 +28,15 @@ public class LifeCycleManagerImpl implements LifeCycleManager {
      */
     private final AtomicReference<LifeCycleManagerPhase> phaseReference = new AtomicReference<>(LifeCycleManagerPhase.LATENT);
 
+    /**
+     * List with all currently known life cycle state listeners.
+     */
+    private final List<LifeCycleTransactionListener> lifeCycleTransactionListeners = Lists.newCopyOnWriteArrayList();
+
     @Override
     public void manageInstance(Object instance) {
+
+        System.out.println("======= Managing: " + instance);
 
         // Create life cycle and let it build up callbacks
         LifeCycle lifeCycle = createLifeCycle(instance);
@@ -34,7 +45,7 @@ public class LifeCycleManagerImpl implements LifeCycleManager {
         managedInstances.put(instance, lifeCycle);
 
         // Start instance life cycle
-        lifeCycle.processLifeCycleStateChange(LifeCycleState.CONSTRUCTION);
+        processLifeCycleTransaction(instance, lifeCycle, LifeCycleState.CONSTRUCTION);
     }
 
     @Override
@@ -47,7 +58,10 @@ public class LifeCycleManagerImpl implements LifeCycleManager {
         }
 
         // Process warm up state
-        managedInstances.values().forEach(lifeCycle -> lifeCycle.processLifeCycleStateChange(LifeCycleState.WARM_UP));
+        managedInstances.values().forEach(lifeCycle -> {
+
+            processLifeCycleTransaction(lifeCycle.getHandle(), lifeCycle, LifeCycleState.WARM_UP);
+        });
 
         // Setup is complete, let the running phase begin
         phaseReference.set(LifeCycleManagerPhase.STARTED);
@@ -58,11 +72,37 @@ public class LifeCycleManagerImpl implements LifeCycleManager {
 
         // Set life cycle states to destruction and clean up objects
         for (LifeCycle value : managedInstances.values()) {
-            value.processLifeCycleStateChange(LifeCycleState.DESTRUCTION);
+
+            processLifeCycleTransaction(value.getHandle(), value, LifeCycleState.DESTRUCTION);
         }
 
         // We don't need the instances anymore
         managedInstances.clear();
+    }
+
+    @Override
+    public void registerLifeCycleTransactionListener(LifeCycleTransactionListener lifeCycleTransactionListener) {
+
+        lifeCycleTransactionListeners.add(lifeCycleTransactionListener);
+    }
+
+    /**
+     * Process the transaction of an object into a new life cycle state.
+     *
+     * @param lifeCycle      The life cycle.
+     * @param lifeCycleState The new state.
+     */
+    private void processLifeCycleTransaction(Object instance, LifeCycle lifeCycle, LifeCycleState lifeCycleState) {
+
+        // Create transaction and fire them through listener
+        LifeCycleTransaction lifeCycleTransaction = new LifeCycleTransaction(instance, lifeCycle, lifeCycleState);
+        for (LifeCycleTransactionListener transactionListener : lifeCycleTransactionListeners) {
+
+            transactionListener.onLifeCycleTransaction(lifeCycleTransaction);
+        }
+
+        // Delegate change to the life cycle and let it take action.
+        lifeCycle.processLifeCycleStateChange(lifeCycleState);
     }
 
     /**
