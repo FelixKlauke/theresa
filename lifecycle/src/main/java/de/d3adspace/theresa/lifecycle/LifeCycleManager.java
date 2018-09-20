@@ -1,5 +1,7 @@
 package de.d3adspace.theresa.lifecycle;
 
+import de.d3adspace.theresa.lifecycle.listener.LifeCycleTransactionListener;
+
 /**
  * @author Felix Klauke <info@felix-klauke.de>
  */
@@ -21,4 +23,11 @@ public interface LifeCycleManager {
      * Stop the life cycle management.
      */
     void stopLifeCycle();
+
+    /**
+     * Add life cycle transaction listener.
+     *
+     * @param lifeCycleTransactionListener The listener.
+     */
+    void registerLifeCycleTransactionListener(LifeCycleTransactionListener lifeCycleTransactionListener);
 }
