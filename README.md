@@ -7,6 +7,27 @@ Blazingly intelligent and dynamic dependency injection framework built on google
 | Master      	| [![Build Status](https://travis-ci.org/FelixKlauke/theresa.svg?branch=master)](https://travis-ci.org/FelixKlauke/theresa) 	| [![codecov](https://codecov.io/gh/FelixKlauke/theresa/branch/master/graph/badge.svg)](https://codecov.io/gh/FelixKlauke/theresa) 	|
 | Development 	| [![Build Status](https://travis-ci.org/FelixKlauke/theresa.svg?branch=dev)](https://travis-ci.org/FelixKlauke/theresa)    	| [![codecov](https://codecov.io/gh/FelixKlauke/theresa/branch/dev/graph/badge.svg)](https://codecov.io/gh/FelixKlauke/theresa)    	|
 
+# Installation / Usage
+
+**Maven repositories**
+```xml
+<repositories>
+    <!-- Klauke Enterprises Releases -->
+    <repository>
+        <id>klauke-enterprises-maven-releases</id>
+        <name>Klauke Enterprises Maven Releases</name>
+        <url>https://repository.klauke-enterprises.com/repository/maven-releases/</url>
+    </repository>
+	
+    <!-- Klauke Enterprises Snapshots -->
+    <repository>
+        <id>klauke-enterprises-maven-snapshots</id>
+        <name>Klauke Enterprises Maven Snapshots</name>
+        <url>https://repository.klauke-enterprises.com/repository/maven-snapshots/</url>
+    </repository>
+</repositories>
+```
+
 # Goals
 Some time ago I discovered [Netflix Governator](https://github.com/Netflix/governator) and I really loved the idea of
 having life cycle management support alongside with dependency injection. Guice was my favourite dependency injection
