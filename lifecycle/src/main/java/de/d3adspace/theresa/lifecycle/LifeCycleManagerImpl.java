@@ -36,8 +36,6 @@ public class LifeCycleManagerImpl implements LifeCycleManager {
     @Override
     public void manageInstance(Object instance) {
 
-        System.out.println("======= Managing: " + instance);
-
         // Create life cycle and let it build up callbacks
         LifeCycle lifeCycle = createLifeCycle(instance);
 
