@@ -21,9 +21,16 @@ notifications:
 script:
 - ./gradlew build check
 - ./gradlew codeCoverageReport
+- ./gradlew sonarqube -Dsonar.host.url=$SONAR_URL -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.login=$SONAR_TOKEN
 
 ###################################
 ### Upload Code Coverage Report ###
 ###################################
 after_success:
 - bash <(curl -s https://codecov.io/bash)
+
+env:
+  global:
+    - SONAR_URL=https://sonar.klauke-enterprises.com
+    - SONAR_PROJECT_KEY=theresa
+    - secure: UTfMIZg/7bCY5REKA9PI1bCTfIYuD7L94lkX/rHJFIPwxTwgkfmznJAZLaN9EnEN8WCWRYgbqg2xCas5C5rZj7E1sZvxi+6rIakUnSm9kAGX2xx3jd7hRgob2A6oQTL3hcicyOmmd30pBFbr3eRjpFgeaVy99HrEHAi0Mk26OomcB1u9Aor3WDYZN9z1e37PjtJJ4Wg4LFFxZTK6JISi7ynn9cjg23FbV908CC1lG9u0qqUvm9Jp7q7Zvc7xUT+DCBN0wCr3GG3QlMbhciwYONouwqhxo5rxiJ2KGZfaRiQuLiyJ0hP2eOY9GBxYArnNvPzj4FnHZZUO93DMXeAR2j/+wZO4V4sCFdO4oWNaTZyBLtxFMOk1UyBnWccgWEbtLQ1MEBGss69Zgqd0k6jgqxsVG6sV0l0cp/aXkEt+H1hYh8X5LVeZI3ChvZ5Javk3aoE9D8IJdJmHE09lxfUyXzYenjGXgl1n7kKKFAKcXPTIkSCZVNgzwEj1HuDkSs/jXBHnoeM8eE8/E/gakuNVPtMm2qMTIcii2cJI2Ty4wIiGSxUESL6pWS8FnaOkAVSZ+moiwBfXAPKBFRh9jtVH27uRLJL0awoDbdYSv6BjOBdOsUw7GitLCqk9/S3sC1arf7B7eTJeXNEcOXRNYyWUvbN2CWD44pjl4+EKrDKRVWM=
