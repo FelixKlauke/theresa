@@ -29,6 +29,19 @@ script:
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 
+##################
+### Deployment ###
+##################
+deploy:
+  provider: script
+  script: ./gradlew publish
+  on:
+    branch: master
+    tags: true
+
+###################
+### Environment ###
+###################
 env:
   global:
     - SONAR_URL=https://sonar.klauke-enterprises.com
