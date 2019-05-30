@@ -1,5 +1,5 @@
 plugins {
-    id 'org.sonarqube' version "2.7"
+    id "org.sonarqube" version "2.7.1"
     id 'java'
 }
 
@@ -13,8 +13,8 @@ allprojects {
     apply plugin: 'maven-publish'
     apply plugin: 'jacoco'
 
-    sourceCompatibility = 1.11
-    targetCompatibility = 1.11
+    sourceCompatibility = 11
+    targetCompatibility = 11
 
     publishing {
         publications {
