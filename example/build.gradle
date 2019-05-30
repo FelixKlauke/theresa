@@ -1,0 +1,17 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '2.0.4'
+}
+
+shadowJar {
+
+    configurations = [project.configurations.runtime]
+}
+
+
+group 'de.d3adspace.theresa'
+version '1.0.0'
+
+dependencies {
+
+    compile project(":theresa-core")
+}
