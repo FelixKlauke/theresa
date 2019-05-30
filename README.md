@@ -32,6 +32,15 @@ Blazingly intelligent and dynamic dependency injection framework built on google
 </repositories>
 ```
 
+**Maven dependencies**
+```xml
+<dependency>
+  <groupId>de.d3adspace.theresa</groupId>
+  <artifactId>theresa-core</artifactId>
+  <version>1.1.0</version>
+</dependency>
+```
+
 # Example
 
 **Main Application**
