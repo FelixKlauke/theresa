@@ -22,6 +22,13 @@ public interface Theresa {
     <T> T getInstance(Class<? extends T> instanceClass);
 
     /**
+     * Inject the member field of the given object.
+     *
+     * @param object The object.
+     */
+    void injectMembers(Object object);
+
+    /**
      * Stop the lifecycle management.
      */
     void stopLifeCycle();

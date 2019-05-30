@@ -55,6 +55,12 @@ public class TheresaImpl implements Theresa {
     }
 
     @Override
+    public void injectMembers(Object object) {
+
+        externalEffectiveInjector.injectMembers(object);
+    }
+
+    @Override
     public void stopLifeCycle() {
 
         logger.info("Stopping theresa life cycle.");
