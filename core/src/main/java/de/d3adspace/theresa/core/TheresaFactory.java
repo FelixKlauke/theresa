@@ -1,10 +1,10 @@
 package de.d3adspace.theresa.core;
 
 import com.google.inject.Module;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
 import de.d3adspace.theresa.lifecycle.LifeCycleManager;
 import de.d3adspace.theresa.lifecycle.LifeCycleManagerImpl;
+
+import java.util.logging.Logger;
 
 /**
  * Standard factory for {@link Theresa} instances.
@@ -13,7 +13,7 @@ import de.d3adspace.theresa.lifecycle.LifeCycleManagerImpl;
  */
 public class TheresaFactory {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TheresaFactory.class);
+    private static final Logger LOGGER = Logger.getLogger(TheresaFactory.class.getSimpleName());
 
     TheresaFactory() {
 
@@ -30,7 +30,7 @@ public class TheresaFactory {
     public static Theresa create(Module... modules) {
 
         if (modules.length == 0) {
-            LOGGER.warn("You're using zero effective modules. Are you sure about that?");
+            LOGGER.warning("You're using zero effective modules. Are you sure about that?");
         }
 
         LifeCycleManager lifeCycleManager = new LifeCycleManagerImpl();
