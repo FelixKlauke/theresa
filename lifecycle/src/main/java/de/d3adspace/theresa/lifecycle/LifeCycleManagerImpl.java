@@ -68,6 +68,11 @@ public class LifeCycleManagerImpl implements LifeCycleManager {
     @Override
     public void stopLifeCycle() {
 
+        // Check if life cycle has already started
+        if (phaseReference.get() != LifeCycleManagerPhase.STARTED) {
+            throw new IllegalStateException("You can't stop a not started life cycle.");
+        }
+
         // Set life cycle states to destruction and clean up objects
         for (LifeCycle value : managedInstances.values()) {
 
