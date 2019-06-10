@@ -1,10 +1,5 @@
 plugins {
-    id 'com.github.johnrengelman.shadow' version '2.0.4'
-}
-
-shadowJar {
-
-    configurations = [project.configurations.runtime]
+    id 'java'
 }
 
 group 'de.d3adspace.theresa'
@@ -13,6 +8,5 @@ version '1.1.0'
 dependencies {
 
     compile 'com.google.inject:guice:4.2.0'
-
     compile project(':theresa-lifecycle')
 }

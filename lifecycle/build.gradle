@@ -7,7 +7,6 @@ shadowJar {
     configurations = [project.configurations.runtime]
 }
 
-
 group 'de.d3adspace.theresa'
 version '1.1.0'
 
