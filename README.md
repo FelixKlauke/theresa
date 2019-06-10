@@ -2,6 +2,8 @@
 <img src=".github/logo.png" alt="Theresa" title="Theresa" />
 </p>
 
+[![Quality Gate Status](https://sonar.klauke-enterprises.com/api/project_badges/measure?project=theresa&metric=alert_status)](https://sonar.klauke-enterprises.com/dashboard?id=theresa)
+
 # theresa
 Blazingly intelligent and dynamic dependency injection framework built on google guice inspired by netflix governator providing lifecycle management and other fancy stuff we miss in guice.
 
@@ -30,6 +32,15 @@ Blazingly intelligent and dynamic dependency injection framework built on google
         <url>https://repository.klauke-enterprises.com/repository/maven-snapshots/</url>
     </repository>
 </repositories>
+```
+
+**Maven dependencies**
+```xml
+<dependency>
+  <groupId>de.d3adspace.theresa</groupId>
+  <artifactId>theresa-core</artifactId>
+  <version>1.1.0</version>
+</dependency>
 ```
 
 # Example
