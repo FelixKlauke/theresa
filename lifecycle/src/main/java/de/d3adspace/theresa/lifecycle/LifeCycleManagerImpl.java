@@ -81,6 +81,9 @@ public class LifeCycleManagerImpl implements LifeCycleManager {
 
         // We don't need the instances anymore
         managedInstances.clear();
+
+        // Update life cycle phase to stopped
+        phaseReference.set(LifeCycleManagerPhase.STOPPED);
     }
 
     @Override
