@@ -7,6 +7,7 @@ import de.d3adspace.theresa.lifecycle.LifeCycleManager;
 import de.d3adspace.theresa.lifecycle.listener.LifeCycleTransactionListener;
 import de.d3adspace.theresa.lifecycle.module.LifecycleModule;
 
+import java.util.Objects;
 import java.util.logging.Logger;
 
 /**
@@ -50,12 +51,16 @@ public class TheresaImpl implements Theresa {
     @Override
     public <T> T getInstance(Class<? extends T> instanceClass) {
 
+        Objects.requireNonNull(instanceClass, "Instance class should be null.");
+
         // Retrieve instance from external effective injector.
         return externalEffectiveInjector.getInstance(instanceClass);
     }
 
     @Override
     public void injectMembers(Object object) {
+
+        Objects.requireNonNull(object, "Can't inject memmbers into a null object.");
 
         externalEffectiveInjector.injectMembers(object);
     }
@@ -69,6 +74,8 @@ public class TheresaImpl implements Theresa {
 
     @Override
     public void registerLifeCycleTransactionListener(LifeCycleTransactionListener lifeCycleTransactionListener) {
+
+        Objects.requireNonNull(lifeCycleTransactionListener, "Can't register a null instance as listener.");
 
         lifeCycleManager.registerLifeCycleTransactionListener(lifeCycleTransactionListener);
     }
