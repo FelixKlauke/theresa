@@ -5,7 +5,7 @@ import de.d3adspace.theresa.lifecycle.listener.LifeCycleTransactionListener;
 /**
  * Central entrance class and core class of the theresa framework.
  *
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 public interface Theresa {
 

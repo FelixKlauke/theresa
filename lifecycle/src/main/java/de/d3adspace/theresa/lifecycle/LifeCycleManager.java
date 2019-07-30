@@ -3,7 +3,7 @@ package de.d3adspace.theresa.lifecycle;
 import de.d3adspace.theresa.lifecycle.listener.LifeCycleTransactionListener;
 
 /**
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 public interface LifeCycleManager {
 

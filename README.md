@@ -67,7 +67,7 @@ theresa.stopLifeCycle();
 
 ```java
 /**
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 @ImplementedBy(ExampleApplicationImpl.class)
 public interface ExampleApplication {

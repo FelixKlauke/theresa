@@ -3,7 +3,7 @@ package de.d3adspace.theresa.lifecycle.phase;
 /**
  * Describes the phases of the life cycle manager.
  *
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 public enum LifeCycleManagerPhase {
 

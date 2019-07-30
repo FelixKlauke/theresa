@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.logging.Logger;
 
 /**
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 public class TheresaImpl implements Theresa {
 

@@ -3,7 +3,7 @@ package de.d3adspace.theresa.lifecycle.state;
 /**
  * Describes all states an instance's life cycle can have and go through.
  *
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 public enum LifeCycleState {
 

@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * Wrapper for a single objects life cycle.
  *
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 public class LifeCycle {
 
