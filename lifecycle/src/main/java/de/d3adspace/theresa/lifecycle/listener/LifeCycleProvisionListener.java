@@ -7,7 +7,7 @@ import de.d3adspace.theresa.lifecycle.LifeCycleManager;
  * {@link ProvisionListener} that detects instances that are provisioned to notify the life cycle manager about the new
  * instance.
  *
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 public class LifeCycleProvisionListener implements ProvisionListener {
 

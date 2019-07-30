@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 class TheresaFactoryTest {
 

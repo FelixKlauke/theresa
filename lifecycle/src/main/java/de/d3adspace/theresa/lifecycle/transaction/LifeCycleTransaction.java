@@ -6,7 +6,7 @@ import de.d3adspace.theresa.lifecycle.state.LifeCycleState;
 /**
  * Describes the context of a life cycle transaction by the instance, it's life cycle and the new state.
  *
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 public class LifeCycleTransaction {
 

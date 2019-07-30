@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>theresa-parent</artifactId>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>core</module>
+    <module>lifecycle</module>
+    <module>example</module>
+  </modules>
+
+  <build>
+    <plugins>
+
+      <!-- Maven Surefire -->
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>${maven.plguin.surefire.version}</version>
+      </plugin>
+
+      <!-- Maven Compiler -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>${maven.plugin.compiler.version}</version>
+      </plugin>
+
+      <!-- Maven release plugin -->
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>${maven.plugin.release.version}</version>
+      </plugin>
+
+      <!-- SonarQube -->
+      <plugin>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <version>${maven.plugin.sonar.version}</version>
+      </plugin>
+
+      <!-- JaCocCo -->
+      <plugin>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <configuration>
+          <append>true</append>
+          <destFile>${sonar.jacoco.reportPaths}</destFile>
+        </configuration>
+        <executions>
+          <!-- Prepare Agent -->
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+            <id>jacoco-initialize</id>
+          </execution>
+
+          <!-- Create reports -->
+          <execution>
+            <goals>
+              <goal>report</goal>
+            </goals>
+            <id>jacoco-site</id>
+            <phase>package</phase>
+          </execution>
+        </executions>
+
+        <!-- Aggregate the reports in the given sonar repo -->
+        <groupId>org.jacoco</groupId>
+
+        <version>${maven.plugin.jacoco.version}</version>
+      </plugin>
+
+      <!-- Maven Source plugin -->
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <id>attach-sources</id>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>${maven.plugin.source.version}</version>
+      </plugin>
+
+      <!-- Maven JavaDocs plugin -->
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <id>attach-javadocs</id>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>${maven.plugin.javadoc.version}</version>
+      </plugin>
+
+    </plugins>
+  </build>
+  <dependencies>
+    <!-- JUnit Jupiter -->
+    <dependency>
+      <artifactId>junit-jupiter-api</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+      <version>5.4.2</version>
+    </dependency>
+
+    <!-- Junit Jupiter Engine -->
+    <dependency>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>test</scope>
+      <version>5.4.2</version>
+    </dependency>
+
+    <!-- Mockito -->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <version>2.28.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <developers>
+    <developer>
+      <email>info@felix-klauke.de</email>
+      <id>felixklauke</id>
+      <name>Felix Klauke</name>
+    </developer>
+  </developers>
+
+  <distributionManagement>
+    <repository>
+      <id>klauke-enterprises-maven-releases</id>
+      <name>Klauke Enterprises Maven Releases</name>
+      <url>https://repository.klauke-enterprises.com/repository/maven-releases/</url>
+    </repository>
+
+    <snapshotRepository>
+      <id>klauke-enterprises-maven-snapshots</id>
+      <name>Klauke Enterprises Maven Snapshots</name>
+      <url>https://repository.klauke-enterprises.com/repository/maven-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <groupId>de.d3adspace.theresa</groupId>
+
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>https://github.com/FelixKlauke/maven-project-template/blob/master/LICENSE</url>
+    </license>
+  </licenses>
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <properties>
+    <!-- General -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- Sonar -->
+    <junit-jupiter.version>5.4.2</junit-jupiter.version>
+    <maven.plguin.surefire.version>2.22.2</maven.plguin.surefire.version>
+    <maven.plugin.compiler.version>3.8.1</maven.plugin.compiler.version>
+
+    <!-- Maven -->
+    <maven.plugin.jacoco.version>0.8.4</maven.plugin.jacoco.version>
+    <maven.plugin.javadoc.version>3.1.0</maven.plugin.javadoc.version>
+    <maven.plugin.release.version>2.5.3</maven.plugin.release.version>
+    <maven.plugin.sonar.version>3.6.0.1398</maven.plugin.sonar.version>
+    <maven.plugin.source.version>3.1.0</maven.plugin.source.version>
+    <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
+    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+
+    <!-- Dependencies -->
+    <sonar.language>java</sonar.language>
+  </properties>
+
+  <scm>
+    <connection>scm:git:git:https://github.com/FelixKlauke/maven-project-template</connection>
+    <developerConnection>scm:git:git:https://github.com/FelixKlauke/maven-project-template
+    </developerConnection>
+    <url>https://github.com/FelixKlauke/maven-project-template</url>
+  </scm>
+
+  <version>1.3.0-SNAPSHOT</version>
+</project>

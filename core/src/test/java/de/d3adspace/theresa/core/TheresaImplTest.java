@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 
 /**
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 @ExtendWith(MockitoExtension.class)
 class TheresaImplTest {

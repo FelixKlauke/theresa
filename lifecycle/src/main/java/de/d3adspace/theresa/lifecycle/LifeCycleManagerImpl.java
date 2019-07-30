@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /**
  * The default implementation of the {@link LifeCycleManager}.
  *
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 public class LifeCycleManagerImpl implements LifeCycleManager {
 

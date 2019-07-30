@@ -5,7 +5,7 @@ import de.d3adspace.theresa.core.TheresaFactory;
 import de.d3adspace.theresa.lifecycle.listener.LifeCycleTransactionListener;
 
 /**
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 public class TheresaExample {
 

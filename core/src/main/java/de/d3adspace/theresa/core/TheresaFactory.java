@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 /**
  * Standard factory for {@link Theresa} instances.
  *
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 public class TheresaFactory {
 

@@ -8,7 +8,7 @@ import de.d3adspace.theresa.lifecycle.listener.LifeCycleProvisionListener;
 /**
  * Module for life cycle bindings.
  *
- * @author Felix Klauke <info@felix-klauke.de>
+ * @author Felix Klauke (info@felix-klauke.de)
  */
 public class LifecycleModule extends AbstractModule {
 
