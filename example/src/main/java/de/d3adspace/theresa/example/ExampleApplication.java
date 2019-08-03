@@ -8,5 +8,5 @@ import com.google.inject.ImplementedBy;
 @ImplementedBy(ExampleApplicationImpl.class)
 public interface ExampleApplication {
 
-    void action();
+  void action();
 }

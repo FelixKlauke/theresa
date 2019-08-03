@@ -7,27 +7,28 @@ import de.d3adspace.theresa.lifecycle.listener.LifeCycleTransactionListener;
  */
 public interface LifeCycleManager {
 
-    /**
-     * Let the life cycle manager manage the given instance.
-     *
-     * @param instance The instance.
-     */
-    void manageInstance(Object instance);
+  /**
+   * Let the life cycle manager manage the given instance.
+   *
+   * @param instance The instance.
+   */
+  void manageInstance(Object instance);
 
-    /**
-     * Let the life cycle management begin.
-     */
-    void startLifeCycle();
+  /**
+   * Let the life cycle management begin.
+   */
+  void startLifeCycle();
 
-    /**
-     * Stop the life cycle management.
-     */
-    void stopLifeCycle();
+  /**
+   * Stop the life cycle management.
+   */
+  void stopLifeCycle();
 
-    /**
-     * Add life cycle transaction listener.
-     *
-     * @param lifeCycleTransactionListener The listener.
-     */
-    void registerLifeCycleTransactionListener(LifeCycleTransactionListener lifeCycleTransactionListener);
+  /**
+   * Add life cycle transaction listener.
+   *
+   * @param lifeCycleTransactionListener The listener.
+   */
+  void registerLifeCycleTransactionListener(
+      LifeCycleTransactionListener lifeCycleTransactionListener);
 }

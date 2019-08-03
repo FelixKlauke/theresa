@@ -12,24 +12,24 @@ import de.d3adspace.theresa.lifecycle.listener.LifeCycleProvisionListener;
  */
 public class LifecycleModule extends AbstractModule {
 
-    /**
-     * The life cycle manager.
-     */
-    private final LifeCycleManager lifeCycleManager;
+  /**
+   * The life cycle manager.
+   */
+  private final LifeCycleManager lifeCycleManager;
 
-    /**
-     * Create a new module by its manager.
-     *
-     * @param lifeCycleManager The manager.
-     */
-    public LifecycleModule(LifeCycleManager lifeCycleManager) {
-        this.lifeCycleManager = lifeCycleManager;
-    }
+  /**
+   * Create a new module by its manager.
+   *
+   * @param lifeCycleManager The manager.
+   */
+  public LifecycleModule(LifeCycleManager lifeCycleManager) {
+    this.lifeCycleManager = lifeCycleManager;
+  }
 
-    @Override
-    protected void configure() {
+  @Override
+  protected void configure() {
 
-        bind(LifeCycleManager.class).toInstance(lifeCycleManager);
-        bindListener(Matchers.any(), new LifeCycleProvisionListener(lifeCycleManager));
-    }
+    bind(LifeCycleManager.class).toInstance(lifeCycleManager);
+    bindListener(Matchers.any(), new LifeCycleProvisionListener(lifeCycleManager));
+  }
 }
