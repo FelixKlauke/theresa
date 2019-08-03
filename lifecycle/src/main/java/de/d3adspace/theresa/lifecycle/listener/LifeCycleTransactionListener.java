@@ -9,10 +9,10 @@ import de.d3adspace.theresa.lifecycle.transaction.LifeCycleTransaction;
  */
 public interface LifeCycleTransactionListener {
 
-    /**
-     * Callback for life cycle transactions.
-     *
-     * @param lifeCycleTransaction The life cycle transaction.
-     */
-    void onLifeCycleTransaction(LifeCycleTransaction lifeCycleTransaction);
+  /**
+   * Callback for life cycle transactions.
+   *
+   * @param lifeCycleTransaction The life cycle transaction.
+   */
+  void onLifeCycleTransaction(LifeCycleTransaction lifeCycleTransaction);
 }

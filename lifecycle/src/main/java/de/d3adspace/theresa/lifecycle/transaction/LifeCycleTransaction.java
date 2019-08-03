@@ -4,34 +4,36 @@ import de.d3adspace.theresa.lifecycle.LifeCycle;
 import de.d3adspace.theresa.lifecycle.state.LifeCycleState;
 
 /**
- * Describes the context of a life cycle transaction by the instance, it's life cycle and the new state.
+ * Describes the context of a life cycle transaction by the instance, it's life cycle and the new
+ * state.
  *
  * @author Felix Klauke (info@felix-klauke.de)
  */
 public class LifeCycleTransaction {
 
-    private final Object instance;
-    private final LifeCycle lifeCycle;
-    private final LifeCycleState newLifeCycleState;
+  private final Object instance;
+  private final LifeCycle lifeCycle;
+  private final LifeCycleState newLifeCycleState;
 
-    public LifeCycleTransaction(Object instance, LifeCycle lifeCycle, LifeCycleState newLifeCycleState) {
-        this.instance = instance;
-        this.lifeCycle = lifeCycle;
-        this.newLifeCycleState = newLifeCycleState;
-    }
+  public LifeCycleTransaction(Object instance, LifeCycle lifeCycle,
+      LifeCycleState newLifeCycleState) {
+    this.instance = instance;
+    this.lifeCycle = lifeCycle;
+    this.newLifeCycleState = newLifeCycleState;
+  }
 
-    public LifeCycleState getCurrentState() {
+  public LifeCycleState getCurrentState() {
 
-        return lifeCycle.getLifeCycleState();
-    }
+    return lifeCycle.getLifeCycleState();
+  }
 
-    public LifeCycleState getNewState() {
+  public LifeCycleState getNewState() {
 
-        return newLifeCycleState;
-    }
+    return newLifeCycleState;
+  }
 
-    public Object getInstance() {
+  public Object getInstance() {
 
-        return instance;
-    }
+    return instance;
+  }
 }

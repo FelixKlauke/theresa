@@ -9,21 +9,23 @@ import de.d3adspace.theresa.lifecycle.listener.LifeCycleTransactionListener;
  */
 public class TheresaExample {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        Theresa theresa = TheresaFactory.create();
+    Theresa theresa = TheresaFactory.create();
 
-        LifeCycleTransactionListener lifeCycleTransactionListener = lifeCycleTransaction -> {
-            System.out.println("Detected life cycle transaction of " + lifeCycleTransaction.getInstance() + " from state "
-                    + lifeCycleTransaction.getCurrentState() + " into " + lifeCycleTransaction.getNewState() + ".");
-        };
-        theresa.registerLifeCycleTransactionListener(lifeCycleTransactionListener);
+    LifeCycleTransactionListener lifeCycleTransactionListener = lifeCycleTransaction -> {
+      System.out.println("Detected life cycle transaction of " + lifeCycleTransaction.getInstance()
+          + " from state "
+          + lifeCycleTransaction.getCurrentState() + " into " + lifeCycleTransaction.getNewState()
+          + ".");
+    };
+    theresa.registerLifeCycleTransactionListener(lifeCycleTransactionListener);
 
-        theresa.startLifeCycle();
+    theresa.startLifeCycle();
 
-        ExampleApplication instance = theresa.getInstance(ExampleApplication.class);
-        instance.action();
+    ExampleApplication instance = theresa.getInstance(ExampleApplication.class);
+    instance.action();
 
-        theresa.stopLifeCycle();
-    }
+    theresa.stopLifeCycle();
+  }
 }

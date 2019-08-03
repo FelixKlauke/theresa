@@ -8,5 +8,5 @@ import com.google.inject.ImplementedBy;
 @ImplementedBy(SomethingManagerImpl.class)
 public interface SomethingManager {
 
-    void doSomething();
+  void doSomething();
 }

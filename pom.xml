@@ -3,14 +3,6 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <artifactId>theresa-parent</artifactId>
-  <packaging>pom</packaging>
-
-  <modules>
-    <module>core</module>
-    <module>lifecycle</module>
-    <module>example</module>
-  </modules>
-
   <build>
     <plugins>
 
@@ -110,6 +102,7 @@
 
     </plugins>
   </build>
+
   <dependencies>
     <!-- JUnit Jupiter -->
     <dependency>
@@ -129,12 +122,13 @@
 
     <!-- Mockito -->
     <dependency>
-      <groupId>org.mockito</groupId>
       <artifactId>mockito-junit-jupiter</artifactId>
-      <version>2.28.2</version>
+      <groupId>org.mockito</groupId>
       <scope>test</scope>
+      <version>2.28.2</version>
     </dependency>
   </dependencies>
+
   <developers>
     <developer>
       <email>info@felix-klauke.de</email>
@@ -142,7 +136,6 @@
       <name>Felix Klauke</name>
     </developer>
   </developers>
-
   <distributionManagement>
     <repository>
       <id>klauke-enterprises-maven-releases</id>
@@ -156,7 +149,6 @@
       <url>https://repository.klauke-enterprises.com/repository/maven-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
-
   <groupId>de.d3adspace.theresa</groupId>
 
   <licenses>
@@ -168,21 +160,29 @@
 
   <modelVersion>4.0.0</modelVersion>
 
+  <modules>
+    <module>core</module>
+    <module>lifecycle</module>
+    <module>example</module>
+  </modules>
+
+  <packaging>pom</packaging>
+
   <properties>
     <!-- General -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit-jupiter.version>5.4.2</junit-jupiter.version>
 
     <!-- Sonar -->
-    <junit-jupiter.version>5.4.2</junit-jupiter.version>
     <maven.plguin.surefire.version>2.22.2</maven.plguin.surefire.version>
     <maven.plugin.compiler.version>3.8.1</maven.plugin.compiler.version>
+    <maven.plugin.jacoco.version>0.8.4</maven.plugin.jacoco.version>
 
     <!-- Maven -->
-    <maven.plugin.jacoco.version>0.8.4</maven.plugin.jacoco.version>
     <maven.plugin.javadoc.version>3.1.0</maven.plugin.javadoc.version>
     <maven.plugin.release.version>2.5.3</maven.plugin.release.version>
     <maven.plugin.sonar.version>3.6.0.1398</maven.plugin.sonar.version>
     <maven.plugin.source.version>3.1.0</maven.plugin.source.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
     <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
 

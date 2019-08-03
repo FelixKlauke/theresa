@@ -8,21 +8,21 @@ import javax.annotation.PreDestroy;
  */
 public class SomethingManagerImpl implements SomethingManager {
 
-    @PostConstruct
-    public void onPostConstruct() {
+  @PostConstruct
+  public void onPostConstruct() {
 
-        System.out.println(SomethingManager.class.getSimpleName() + "#" + "onPostConstruct()");
-    }
+    System.out.println(SomethingManager.class.getSimpleName() + "#" + "onPostConstruct()");
+  }
 
-    @Override
-    public void doSomething() {
+  @Override
+  public void doSomething() {
 
-        System.out.println("I do something!");
-    }
+    System.out.println("I do something!");
+  }
 
-    @PreDestroy
-    public void onPreDestroy() {
+  @PreDestroy
+  public void onPreDestroy() {
 
-        System.out.println(SomethingManager.class.getSimpleName() + "#" + "onPreDestroy()");
-    }
+    System.out.println(SomethingManager.class.getSimpleName() + "#" + "onPreDestroy()");
+  }
 }

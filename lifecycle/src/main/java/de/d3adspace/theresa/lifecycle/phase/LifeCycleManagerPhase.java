@@ -7,23 +7,23 @@ package de.d3adspace.theresa.lifecycle.phase;
  */
 public enum LifeCycleManagerPhase {
 
-    /**
-     * Describes that the life cycle manager is not yet starting or started.
-     */
-    LATENT,
+  /**
+   * Describes that the life cycle manager is not yet starting or started.
+   */
+  LATENT,
 
-    /**
-     * Describes that the life cycle manager is currently warming up and starting.
-     */
-    STARTING,
+  /**
+   * Describes that the life cycle manager is currently warming up and starting.
+   */
+  STARTING,
 
-    /**
-     * Describes that the life cycle manager is active and running.
-     */
-    STARTED,
+  /**
+   * Describes that the life cycle manager is active and running.
+   */
+  STARTED,
 
-    /**
-     * Describes that the life cycle manager is stopped.
-     */
-    STOPPED
+  /**
+   * Describes that the life cycle manager is stopped.
+   */
+  STOPPED
 }

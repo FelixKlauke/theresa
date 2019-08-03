@@ -7,23 +7,23 @@ package de.d3adspace.theresa.lifecycle.state;
  */
 public enum LifeCycleState {
 
-    /**
-     * NONE state is when the instance is in life cycle setup.
-     */
-    NONE,
+  /**
+   * NONE state is when the instance is in life cycle setup.
+   */
+  NONE,
 
-    /**
-     * Construction state is when the instance gets created.
-     */
-    CONSTRUCTION,
+  /**
+   * Construction state is when the instance gets created.
+   */
+  CONSTRUCTION,
 
-    /**
-     * Warmup state is when the life cycle manager is started.
-     */
-    WARM_UP,
+  /**
+   * Warmup state is when the life cycle manager is started.
+   */
+  WARM_UP,
 
-    /**
-     * Destruction state is when the instance is cleaned up.
-     */
-    DESTRUCTION
+  /**
+   * Destruction state is when the instance is cleaned up.
+   */
+  DESTRUCTION
 }
