@@ -26,7 +26,7 @@ public class LifeCycle {
    * Holds references on the callback actions when a given state is entered.
    */
   private final Map<LifeCycleState, List<LifeCycleStateCallback>> lifeCycleCallbacks = Maps
-      .newConcurrentMap();
+    .newConcurrentMap();
   /**
    * The current life cycle state.
    */
@@ -55,7 +55,7 @@ public class LifeCycle {
 
     // Execute callbacks for the given life cycle state
     List<LifeCycleStateCallback> callbacks = lifeCycleCallbacks
-        .getOrDefault(lifeCycleState, Lists.newArrayList());
+      .getOrDefault(lifeCycleState, Lists.newArrayList());
     callbacks.forEach(Runnable::run);
 
     // Set the new state
@@ -99,12 +99,12 @@ public class LifeCycle {
     if (declaredMethod.isAnnotationPresent(PostConstruct.class)) {
 
       addCallbackMethod(LifeCycleState.CONSTRUCTION,
-          new MethodLifeCycleStateCallback(declaredMethod));
+        new MethodLifeCycleStateCallback(declaredMethod));
 
     } else if (declaredMethod.isAnnotationPresent(PreDestroy.class)) {
 
       addCallbackMethod(LifeCycleState.DESTRUCTION,
-          new MethodLifeCycleStateCallback(declaredMethod));
+        new MethodLifeCycleStateCallback(declaredMethod));
 
     } else if (declaredMethod.isAnnotationPresent(WarmUp.class)) {
 
@@ -121,7 +121,7 @@ public class LifeCycle {
   private void addCallbackMethod(LifeCycleState lifeCycleState, LifeCycleStateCallback callback) {
 
     List<LifeCycleStateCallback> callbacks = lifeCycleCallbacks
-        .computeIfAbsent(lifeCycleState, key -> Lists.newArrayList());
+      .computeIfAbsent(lifeCycleState, key -> Lists.newArrayList());
     callbacks.add(callback);
   }
 

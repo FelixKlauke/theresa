@@ -26,13 +26,13 @@ public class LifeCycleManagerImpl implements LifeCycleManager {
    * The reference to the life cycle manager phase.
    */
   private final AtomicReference<LifeCycleManagerPhase> phaseReference = new AtomicReference<>(
-      LifeCycleManagerPhase.LATENT);
+    LifeCycleManagerPhase.LATENT);
 
   /**
    * List with all currently known life cycle state listeners.
    */
   private final List<LifeCycleTransactionListener> lifeCycleTransactionListeners = Lists
-      .newCopyOnWriteArrayList();
+    .newCopyOnWriteArrayList();
 
   @Override
   public void manageInstance(Object instance) {
@@ -52,7 +52,7 @@ public class LifeCycleManagerImpl implements LifeCycleManager {
 
     // Check if we even can start the life cycle management from here
     boolean validPhase = phaseReference
-        .compareAndSet(LifeCycleManagerPhase.LATENT, LifeCycleManagerPhase.STARTING);
+      .compareAndSet(LifeCycleManagerPhase.LATENT, LifeCycleManagerPhase.STARTING);
     if (!validPhase) {
       throw new IllegalStateException("Can't start life cycle from phase " + phaseReference.get());
     }
@@ -90,7 +90,7 @@ public class LifeCycleManagerImpl implements LifeCycleManager {
 
   @Override
   public void registerLifeCycleTransactionListener(
-      LifeCycleTransactionListener lifeCycleTransactionListener) {
+    LifeCycleTransactionListener lifeCycleTransactionListener) {
 
     lifeCycleTransactionListeners.add(lifeCycleTransactionListener);
   }
@@ -102,11 +102,11 @@ public class LifeCycleManagerImpl implements LifeCycleManager {
    * @param lifeCycleState The new state.
    */
   private void processLifeCycleTransaction(Object instance, LifeCycle lifeCycle,
-      LifeCycleState lifeCycleState) {
+    LifeCycleState lifeCycleState) {
 
     // Create transaction and fire them through listener
     LifeCycleTransaction lifeCycleTransaction = new LifeCycleTransaction(instance, lifeCycle,
-        lifeCycleState);
+      lifeCycleState);
     for (LifeCycleTransactionListener transactionListener : lifeCycleTransactionListeners) {
 
       transactionListener.onLifeCycleTransaction(lifeCycleTransaction);
@@ -127,7 +127,7 @@ public class LifeCycleManagerImpl implements LifeCycleManager {
     // Prohibit new objects when the life cycle is already stopped
     if (phaseReference.get() == LifeCycleManagerPhase.STOPPED) {
       throw new IllegalStateException(
-          "Can't take new instances as life cycle management is stopped.");
+        "Can't take new instances as life cycle management is stopped.");
     }
 
     // Construct life cycle, initial state is none and will be modified later if the life cycle is active

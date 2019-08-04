@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.d3adspace.theresa</groupId>
+    <artifactId>theresa-parent</artifactId>
+    <version>1.3.0</version>
+  </parent>
+
   <artifactId>theresa-lifecycle</artifactId>
+
+  <dependencies>
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>javax.annotation-api</artifactId>
+      <version>1.3.2</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>4.2.2</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <!-- Maven shading -->
-      <plugin>
-        <artifactId>maven-shade-plugin</artifactId>
-        <executions>
+      <plugin><executions>
           <execution>
             <configuration>
               <createDependencyReducedPom>false</createDependencyReducedPom>
@@ -18,31 +40,9 @@
           </execution>
         </executions>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
         <version>3.2.1</version>
       </plugin>
     </plugins>
   </build>
-
-  <dependencies>
-    <dependency>
-      <artifactId>javax.annotation-api</artifactId>
-      <groupId>javax.annotation</groupId>
-      <scope>compile</scope>
-      <version>1.3.2</version>
-    </dependency>
-    <dependency>
-      <artifactId>guice</artifactId>
-      <groupId>com.google.inject</groupId>
-      <scope>compile</scope>
-      <version>4.2.2</version>
-    </dependency>
-  </dependencies>
-  <modelVersion>4.0.0</modelVersion>
-
-  <parent>
-    <artifactId>theresa-parent</artifactId>
-    <groupId>de.d3adspace.theresa</groupId>
-    <version>1.3.0</version>
-  </parent>
-
 </project>

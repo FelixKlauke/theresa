@@ -15,9 +15,9 @@ public class TheresaExample {
 
     LifeCycleTransactionListener lifeCycleTransactionListener = lifeCycleTransaction -> {
       System.out.println("Detected life cycle transaction of " + lifeCycleTransaction.getInstance()
-          + " from state "
-          + lifeCycleTransaction.getCurrentState() + " into " + lifeCycleTransaction.getNewState()
-          + ".");
+        + " from state "
+        + lifeCycleTransaction.getCurrentState() + " into " + lifeCycleTransaction.getNewState()
+        + ".");
     };
     theresa.registerLifeCycleTransactionListener(lifeCycleTransactionListener);
 

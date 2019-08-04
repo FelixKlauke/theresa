@@ -39,5 +39,5 @@ public interface Theresa {
    * @param lifeCycleTransactionListener The listener.
    */
   void registerLifeCycleTransactionListener(
-      LifeCycleTransactionListener lifeCycleTransactionListener);
+    LifeCycleTransactionListener lifeCycleTransactionListener);
 }
