@@ -29,7 +29,11 @@
   <build>
     <plugins>
       <!-- Maven shading -->
-      <plugin><executions>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.1</version>
+        <executions>
           <execution>
             <configuration>
               <createDependencyReducedPom>false</createDependencyReducedPom>
@@ -40,9 +44,6 @@
             <phase>package</phase>
           </execution>
         </executions>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>3.2.1</version>
       </plugin>
     </plugins>
   </build>
