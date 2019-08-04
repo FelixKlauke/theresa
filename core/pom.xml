@@ -5,7 +5,7 @@
   <parent>
     <groupId>de.d3adspace.theresa</groupId>
     <artifactId>theresa-parent</artifactId>
-    <version>1.3.2</version>
+    <version>1.3.3-SNAPSHOT</version>
   </parent>
 
   <artifactId>theresa-core</artifactId>
