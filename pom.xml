@@ -30,6 +30,8 @@
 
   <scm>
     <developerConnection>scm:git:git@github.com:felixklauke/theresa.git</developerConnection>
+    <connection>scm:git:git@github.com:felixklauke/theresa.git</connection>
+    <url>scm:git:git@github.com:felixklauke/theresa.git</url>
     <tag>v1.3.0</tag>
   </scm>
   <distributionManagement>
