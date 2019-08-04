@@ -9,6 +9,7 @@
   </parent>
 
   <artifactId>theresa-lifecycle</artifactId>
+  <version>1.3.3-SNAPSHOT</version>
 
   <dependencies>
     <dependency>
