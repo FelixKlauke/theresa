@@ -16,7 +16,7 @@ public class LifeCycleTransaction {
   private final LifeCycleState newLifeCycleState;
 
   public LifeCycleTransaction(Object instance, LifeCycle lifeCycle,
-      LifeCycleState newLifeCycleState) {
+    LifeCycleState newLifeCycleState) {
     this.instance = instance;
     this.lifeCycle = lifeCycle;
     this.newLifeCycleState = newLifeCycleState;

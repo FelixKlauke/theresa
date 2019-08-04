@@ -38,7 +38,7 @@ public class TheresaImpl implements Theresa {
     this.lifeCycleManager = lifeCycleManager;
     this.externalParentInjector = Guice.createInjector(new LifecycleModule(lifeCycleManager));
     this.externalEffectiveInjector = externalParentInjector
-        .createChildInjector(externalParentModules);
+      .createChildInjector(externalParentModules);
   }
 
   @Override
@@ -74,10 +74,10 @@ public class TheresaImpl implements Theresa {
 
   @Override
   public void registerLifeCycleTransactionListener(
-      LifeCycleTransactionListener lifeCycleTransactionListener) {
+    LifeCycleTransactionListener lifeCycleTransactionListener) {
 
     Objects.requireNonNull(lifeCycleTransactionListener,
-        "Can't register a null instance as listener.");
+      "Can't register a null instance as listener.");
 
     lifeCycleManager.registerLifeCycleTransactionListener(lifeCycleTransactionListener);
   }

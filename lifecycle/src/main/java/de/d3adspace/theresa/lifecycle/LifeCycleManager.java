@@ -30,5 +30,5 @@ public interface LifeCycleManager {
    * @param lifeCycleTransactionListener The listener.
    */
   void registerLifeCycleTransactionListener(
-      LifeCycleTransactionListener lifeCycleTransactionListener);
+    LifeCycleTransactionListener lifeCycleTransactionListener);
 }
