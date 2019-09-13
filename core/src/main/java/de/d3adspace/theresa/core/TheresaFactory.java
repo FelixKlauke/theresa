@@ -1,8 +1,8 @@
 package de.d3adspace.theresa.core;
 
 import com.google.inject.Module;
-import de.d3adspace.theresa.lifecycle.LifeCycleManager;
-import de.d3adspace.theresa.lifecycle.LifeCycleManagerImpl;
+import de.d3adspace.theresa.lifecycle.LifeCycleFactory;
+import de.d3adspace.theresa.lifecycle.LifeCycleRegistry;
 import java.util.logging.Logger;
 
 /**
@@ -31,7 +31,8 @@ public class TheresaFactory {
       LOGGER.warning("You're using zero effective modules. Are you sure about that?");
     }
 
-    LifeCycleManager lifeCycleManager = new LifeCycleManagerImpl();
-    return new TheresaImpl(lifeCycleManager, modules);
+    LifeCycleRegistry lifeCycleRegistry = LifeCycleRegistry.create();
+    LifeCycleFactory lifeCycleFactory = LifeCycleFactory.create();
+    return new GuiceTheresa(lifeCycleRegistry, lifeCycleFactory, modules);
   }
 }

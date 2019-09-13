@@ -1,7 +1,9 @@
 package de.d3adspace.theresa.lifecycle.listener;
 
 import com.google.inject.spi.ProvisionListener;
-import de.d3adspace.theresa.lifecycle.LifeCycleManager;
+import de.d3adspace.theresa.lifecycle.LifeCycle;
+import de.d3adspace.theresa.lifecycle.LifeCycleFactory;
+import de.d3adspace.theresa.lifecycle.LifeCycleRegistry;
 
 /**
  * {@link ProvisionListener} that detects instances that are provisioned to notify the life cycle
@@ -11,19 +13,13 @@ import de.d3adspace.theresa.lifecycle.LifeCycleManager;
  */
 public class LifeCycleProvisionListener implements ProvisionListener {
 
-  /**
-   * The life cycle listener.
-   */
-  private final LifeCycleManager lifeCycleManager;
+  private final LifeCycleFactory lifeCycleFactory;
+  private final LifeCycleRegistry lifeCycleRegistry;
 
-  /**
-   * Create a new provision listener by the underlying life cycle manager.
-   *
-   * @param lifeCycleManager The life cycle manager.
-   */
-  public LifeCycleProvisionListener(LifeCycleManager lifeCycleManager) {
-
-    this.lifeCycleManager = lifeCycleManager;
+  public LifeCycleProvisionListener(LifeCycleFactory lifeCycleFactory,
+      LifeCycleRegistry lifeCycleRegistry) {
+    this.lifeCycleFactory = lifeCycleFactory;
+    this.lifeCycleRegistry = lifeCycleRegistry;
   }
 
   @Override
@@ -33,6 +29,7 @@ public class LifeCycleProvisionListener implements ProvisionListener {
     T provision = provisionInvocation.provision();
 
     // Let life cycle manager manage the instance
-    lifeCycleManager.manageInstance(provision);
+    LifeCycle lifeCycle = lifeCycleFactory.createLifeCycle(provision);
+    lifeCycleRegistry.saveLifecycle(provision, lifeCycle);
   }
 }
