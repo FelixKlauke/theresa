@@ -2,7 +2,8 @@ package de.d3adspace.theresa.lifecycle.module;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.matcher.Matchers;
-import de.d3adspace.theresa.lifecycle.LifeCycleManager;
+import de.d3adspace.theresa.lifecycle.LifeCycleFactory;
+import de.d3adspace.theresa.lifecycle.LifeCycleRegistry;
 import de.d3adspace.theresa.lifecycle.listener.LifeCycleProvisionListener;
 
 /**
@@ -12,24 +13,19 @@ import de.d3adspace.theresa.lifecycle.listener.LifeCycleProvisionListener;
  */
 public class LifecycleModule extends AbstractModule {
 
-  /**
-   * The life cycle manager.
-   */
-  private final LifeCycleManager lifeCycleManager;
+  private final LifeCycleFactory lifeCycleFactory;
+  private final LifeCycleRegistry lifeCycleRegistry;
 
-  /**
-   * Create a new module by its manager.
-   *
-   * @param lifeCycleManager The manager.
-   */
-  public LifecycleModule(LifeCycleManager lifeCycleManager) {
-    this.lifeCycleManager = lifeCycleManager;
+  public LifecycleModule(LifeCycleFactory lifeCycleFactory, LifeCycleRegistry lifeCycleRegistry) {
+    this.lifeCycleFactory = lifeCycleFactory;
+    this.lifeCycleRegistry = lifeCycleRegistry;
   }
 
   @Override
   protected void configure() {
 
-    bind(LifeCycleManager.class).toInstance(lifeCycleManager);
-    bindListener(Matchers.any(), new LifeCycleProvisionListener(lifeCycleManager));
+    LifeCycleProvisionListener lifeCycleProvisionListener = new LifeCycleProvisionListener(
+        lifeCycleFactory, lifeCycleRegistry);
+    bindListener(Matchers.any(), lifeCycleProvisionListener);
   }
 }

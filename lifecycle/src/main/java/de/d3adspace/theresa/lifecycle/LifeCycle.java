@@ -1,5 +1,6 @@
 package de.d3adspace.theresa.lifecycle;
 
+import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import de.d3adspace.theresa.lifecycle.annotation.WarmUp;
@@ -32,14 +33,7 @@ public class LifeCycle {
    */
   private LifeCycleState lifeCycleState;
 
-  /**
-   * Create a new life cycle wrapper by an instance and its starting state.
-   *
-   * @param handle The instance.
-   * @param lifeCycleState The life cycle state.
-   */
-  LifeCycle(Object handle, LifeCycleState lifeCycleState) {
-
+  private LifeCycle(Object handle, LifeCycleState lifeCycleState) {
     this.handle = handle;
     this.lifeCycleState = lifeCycleState;
 
@@ -47,28 +41,14 @@ public class LifeCycle {
   }
 
   /**
-   * Process a changing life cycle state.
+   * Create a new life cycle wrapper by an instance and its starting state.
    *
-   * @param lifeCycleState Thew new state.
+   * @param managedInstance The instance.
    */
-  void processLifeCycleStateChange(LifeCycleState lifeCycleState) {
+  static LifeCycle forManagedInstance(Object managedInstance) {
+    Preconditions.checkNotNull(managedInstance, "Managed instance should not be null");
 
-    // Execute callbacks for the given life cycle state
-    List<LifeCycleStateCallback> callbacks = lifeCycleCallbacks
-      .getOrDefault(lifeCycleState, Lists.newArrayList());
-    callbacks.forEach(Runnable::run);
-
-    // Set the new state
-    this.lifeCycleState = lifeCycleState;
-  }
-
-  /**
-   * Get the managed instance.
-   *
-   * @return The instance.
-   */
-  Object getHandle() {
-    return handle;
+    return new LifeCycle(managedInstance, LifeCycleState.NONE);
   }
 
   /**
@@ -84,14 +64,16 @@ public class LifeCycle {
     }
   }
 
-  /**
-   * Get the current life cycle state.
-   *
-   * @return The life cycle state.
-   */
-  public LifeCycleState getLifeCycleState() {
+  public void updateState(LifeCycleState lifeCycleState) {
+    Preconditions.checkNotNull(lifeCycleState, "Life cycle state should not be null");
 
-    return lifeCycleState;
+    // Execute callbacks for the given life cycle state
+    List<LifeCycleStateCallback> callbacks = lifeCycleCallbacks
+      .getOrDefault(lifeCycleState, Lists.newArrayList());
+    callbacks.forEach(Runnable::run);
+
+    // Set the new state
+    this.lifeCycleState = lifeCycleState;
   }
 
   private void buildCallbackAction(Method declaredMethod) {
@@ -128,7 +110,7 @@ public class LifeCycle {
   /**
    * Standard callback.
    */
-  private abstract class LifeCycleStateCallback implements Runnable {
+  private abstract static class LifeCycleStateCallback implements Runnable {
 
   }
 
