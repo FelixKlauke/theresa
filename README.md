@@ -24,13 +24,6 @@ Blazingly intelligent and dynamic dependency injection framework built on google
         <name>Klauke Enterprises Maven Releases</name>
         <url>https://repository.klauke-enterprises.com/repository/maven-releases/</url>
     </repository>
-	
-    <!-- Klauke Enterprises Snapshots -->
-    <repository>
-        <id>klauke-enterprises-maven-snapshots</id>
-        <name>Klauke Enterprises Maven Snapshots</name>
-        <url>https://repository.klauke-enterprises.com/repository/maven-snapshots/</url>
-    </repository>
 </repositories>
 ```
 
@@ -39,7 +32,7 @@ Blazingly intelligent and dynamic dependency injection framework built on google
 <dependency>
   <groupId>de.d3adspace.theresa</groupId>
   <artifactId>theresa-core</artifactId>
-  <version>1.1.0</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
