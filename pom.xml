@@ -4,7 +4,7 @@
 
   <groupId>de.d3adspace.theresa</groupId>
   <artifactId>theresa-parent</artifactId>
-  <version>2.0.1-SNAPSHOT</version>
+  <version>2.0.1</version>
   <packaging>pom</packaging>
 
   <licenses>
@@ -32,7 +32,7 @@
     <developerConnection>scm:git:git@github.com:felixklauke/theresa.git</developerConnection>
     <connection>scm:git:git@github.com:felixklauke/theresa.git</connection>
     <url>scm:git:git@github.com:felixklauke/theresa.git</url>
-    <tag>HEAD</tag>
+    <tag>2.0.1</tag>
   </scm>
   <distributionManagement>
 
