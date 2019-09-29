@@ -10,7 +10,7 @@ import java.util.logging.Logger;
  *
  * @author Felix Klauke (info@felix-klauke.de)
  */
-public class TheresaFactory {
+public final class TheresaFactory {
 
   private static final Logger LOGGER = Logger.getLogger(TheresaFactory.class.getSimpleName());
 

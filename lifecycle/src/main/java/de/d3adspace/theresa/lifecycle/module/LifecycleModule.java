@@ -11,7 +11,7 @@ import de.d3adspace.theresa.lifecycle.listener.LifeCycleProvisionListener;
  *
  * @author Felix Klauke (info@felix-klauke.de)
  */
-public class LifecycleModule extends AbstractModule {
+public final class LifecycleModule extends AbstractModule {
 
   private final LifeCycleFactory lifeCycleFactory;
   private final LifeCycleRegistry lifeCycleRegistry;

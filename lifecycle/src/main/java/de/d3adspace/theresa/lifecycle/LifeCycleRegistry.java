@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 
-public class LifeCycleRegistry {
+public final class LifeCycleRegistry {
 
   /**
    * All instances we are currently managing.
