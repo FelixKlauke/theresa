@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 /**
  * @author Felix Klauke (info@felix-klauke.de)
  */
-public class GuiceTheresa extends AbstractTheresa {
+public final class GuiceTheresa extends AbstractTheresa {
 
   /**
    * The logger for all general actions.

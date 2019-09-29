@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import de.d3adspace.theresa.lifecycle.annotation.WarmUp;
+import de.d3adspace.theresa.lifecycle.exception.LifeCycleCallbackException;
 import de.d3adspace.theresa.lifecycle.state.LifeCycleState;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -17,7 +18,7 @@ import javax.annotation.PreDestroy;
  *
  * @author Felix Klauke (info@felix-klauke.de)
  */
-public class LifeCycle {
+public final class LifeCycle {
 
   /**
    * The instance this life cycle wrapper is operating on.
@@ -139,7 +140,7 @@ public class LifeCycle {
       try {
         method.invoke(handle);
       } catch (IllegalAccessException | InvocationTargetException e) {
-        e.printStackTrace();
+        throw LifeCycleCallbackException.withMessageAndCause("Couldn't call callback method", e);
       }
     }
   }

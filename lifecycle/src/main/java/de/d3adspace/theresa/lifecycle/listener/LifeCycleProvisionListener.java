@@ -11,7 +11,7 @@ import de.d3adspace.theresa.lifecycle.LifeCycleRegistry;
  *
  * @author Felix Klauke (info@felix-klauke.de)
  */
-public class LifeCycleProvisionListener implements ProvisionListener {
+public final class LifeCycleProvisionListener implements ProvisionListener {
 
   private final LifeCycleFactory lifeCycleFactory;
   private final LifeCycleRegistry lifeCycleRegistry;

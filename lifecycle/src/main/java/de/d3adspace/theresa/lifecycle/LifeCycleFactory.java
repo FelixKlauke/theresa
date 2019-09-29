@@ -3,7 +3,7 @@ package de.d3adspace.theresa.lifecycle;
 import com.google.common.base.Preconditions;
 import de.d3adspace.theresa.lifecycle.state.LifeCycleState;
 
-public class LifeCycleFactory {
+public final class LifeCycleFactory {
 
   private LifeCycleFactory() {
   }
