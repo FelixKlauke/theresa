@@ -7,22 +7,24 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 /**
+ * The example default application implementation.
+ *
  * @author Felix Klauke (info@felix-klauke.de)
  */
 @Singleton
-public class ExampleApplicationImpl implements ExampleApplication {
+public class DefaultApplication implements ExampleApplication {
 
   private final SomethingManager somethingManager;
 
   @Inject
-  public ExampleApplicationImpl(SomethingManager somethingManager) {
+  public DefaultApplication(SomethingManager somethingManager) {
     this.somethingManager = somethingManager;
   }
 
   @PostConstruct
   public void onPostConstruct() {
 
-    System.out.println(ExampleApplicationImpl.class.getSimpleName() + "#" + "onPostConstruct()");
+    System.out.println(DefaultApplication.class.getSimpleName() + "#" + "onPostConstruct()");
   }
 
   @Override
@@ -34,6 +36,6 @@ public class ExampleApplicationImpl implements ExampleApplication {
   @PreDestroy
   public void onPreDestroy() {
 
-    System.out.println(ExampleApplicationImpl.class.getSimpleName() + "#" + "onPreDestroy()");
+    System.out.println(DefaultApplication.class.getSimpleName() + "#" + "onPreDestroy()");
   }
 }

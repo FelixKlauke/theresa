@@ -5,7 +5,7 @@ import com.google.inject.ImplementedBy;
 /**
  * @author Felix Klauke (info@felix-klauke.de)
  */
-@ImplementedBy(ExampleApplicationImpl.class)
+@ImplementedBy(DefaultApplication.class)
 public interface ExampleApplication {
 
   void action();
