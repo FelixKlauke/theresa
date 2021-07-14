@@ -3,6 +3,13 @@ Blazingly intelligent and dynamic dependency injection framework built on google
 
 Therese is shipping version `5.0.1` of Google [Guice](https://github.com/google/guice).
 
+# Build Status
+
+| Build Status | Gradle Build                                                                                                                                                                  | Gradle Publish                                                                                                                                                                                  |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| main         | [![Gradle Build](https://github.com/d3adspace/theresa/actions/workflows/gradle.yml/badge.svg?branch=main)](https://github.com/d3adspace/theresa/actions/workflows/gradle.yml) | [![Gradle Publish](https://github.com/d3adspace/theresa/actions/workflows/gradle-publish.yml/badge.svg?branch=main)](https://github.com/d3adspace/theresa/actions/workflows/gradle-publish.yml) |
+| dev          | [![Gradle Build](https://github.com/d3adspace/theresa/actions/workflows/gradle.yml/badge.svg?branch=dev)](https://github.com/d3adspace/theresa/actions/workflows/gradle.yml)  | None                                                                                                                                                                                            |
+
 # Installation / Usage
 
 ## Gradle
