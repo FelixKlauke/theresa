@@ -3,6 +3,7 @@ package de.d3adspace.theresa.lifecycle.exception;
 import com.google.common.base.Preconditions;
 
 public final class LifeCycleCallbackException extends RuntimeException {
+
   private LifeCycleCallbackException(String message, Throwable cause) {
     super(message, cause);
   }
