@@ -45,9 +45,10 @@ publishing {
 }
 
 signing {
-  def signingKey = project.findProperty("gpr.gpg_key") ?: System.getenv("GPG_KEY")
-  def signingPassword = project.findProperty("gpr.gpg_key_passphrase") ?: System.getenv("GPG_KEY_PASSPHRASE")
-  useInMemoryPgpKeys(signingKey, signingPassword)
+  useInMemoryPgpKeys(
+    findProperty("GPG_KEY") as String,
+    findProperty("GPG_KEY_PASSPHRASE") as String
+  )
   sign publishing.publications.gpr
 }
 
