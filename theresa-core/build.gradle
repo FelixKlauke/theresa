@@ -46,7 +46,7 @@ publishing {
 
 signing {
   useInMemoryPgpKeys(
-    findProperty("GPG_SIGNING_KEY") as String,
+    findProperty("GPG_KEY") as String,
     findProperty("GPG_KEY_PASSPHRASE") as String
   )
   sign publishing.publications.gpr
