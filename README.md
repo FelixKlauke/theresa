@@ -5,6 +5,28 @@ Therese is shipping version `5.0.1` of Google [Guice](https://github.com/google/
 
 # Installation / Usage
 
+## Gradle
+
+**Gradle repositories**
+```groovy
+repositories {
+  maven {
+    name = "d3adspace-theresa-github-package-registry"
+    description = "3adspace Enterprises Theresa GitHub Package Registry"
+    url = "https://maven.pkg.github.com/d3adspace/theresa/"
+  }
+}
+```
+
+**Gradle dependencies**
+```groovy
+dependencies {
+  implementation 'de.d3adspace:theresa-core:3.4.0'
+}
+```
+
+## Maven
+
 **Maven repositories**
 ```xml
 <repositories>
@@ -23,24 +45,6 @@ Therese is shipping version `5.0.1` of Google [Guice](https://github.com/google/
   <artifactId>theresa-core</artifactId>
   <version>3.4.0</version>
 </dependency>
-```
-
-**Gradle repositories**
-```groovy
-repositories {
-  maven {
-    name = "d3adspace-theresa-github-package-registry"
-    description = "3adspace Enterprises Theresa GitHub Package Registry"
-    url = "https://maven.pkg.github.com/d3adspace/theresa/"
-  }
-}
-```
-
-**Gradle dependencies**
-```groovy
-dependencies {
-  implementation 'de.d3adspace:theresa-core:3.4.0'
-}
 ```
 
 # Example
