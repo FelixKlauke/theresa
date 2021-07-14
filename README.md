@@ -1,7 +1,38 @@
 # theresa
 Blazingly intelligent and dynamic dependency injection framework built on google guice inspired by netflix governator providing lifecycle management and other fancy stuff we miss in guice.
 
+Therese is shipping version `5.0.1` of Google [Guice](https://github.com/google/guice).
+
+# Build Status
+
+| Build Status | Gradle Build                                                                                                                                                                  | Gradle Publish                                                                                                                                                                                  | CodeQL                                                                                                                                                                                    |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| main         | [![Gradle Build](https://github.com/d3adspace/theresa/actions/workflows/gradle.yml/badge.svg?branch=main)](https://github.com/d3adspace/theresa/actions/workflows/gradle.yml) | [![Gradle Publish](https://github.com/d3adspace/theresa/actions/workflows/gradle-publish.yml/badge.svg?branch=main)](https://github.com/d3adspace/theresa/actions/workflows/gradle-publish.yml) | [![CodeQL](https://github.com/d3adspace/theresa/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/d3adspace/theresa/actions/workflows/codeql-analysis.yml) |
+| dev          | [![Gradle Build](https://github.com/d3adspace/theresa/actions/workflows/gradle.yml/badge.svg?branch=dev)](https://github.com/d3adspace/theresa/actions/workflows/gradle.yml)  | None                                                                                                                                                                                            | [![CodeQL](https://github.com/d3adspace/theresa/actions/workflows/codeql-analysis.yml/badge.svg?branch=dev)](https://github.com/d3adspace/theresa/actions/workflows/codeql-analysis.yml)  |
+
 # Installation / Usage
+
+## Gradle
+
+**Gradle repositories**
+```groovy
+repositories {
+  maven {
+    name = "d3adspace-theresa-github-package-registry"
+    description = "3adspace Enterprises Theresa GitHub Package Registry"
+    url = "https://maven.pkg.github.com/d3adspace/theresa/"
+  }
+}
+```
+
+**Gradle dependencies**
+```groovy
+dependencies {
+  implementation 'de.d3adspace:theresa-core:3.4.0'
+}
+```
+
+## Maven
 
 **Maven repositories**
 ```xml
