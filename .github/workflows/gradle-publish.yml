@@ -24,10 +24,13 @@ jobs:
         settings-path: ${{ github.workspace }}
     - name: Build with Gradle
       run: gradle build
+    - name: Import GPG
+      uses: crazy-max/ghaction-import-gpg@v3.1.0
+      with:
+        gpg-private-key: ${{ secrets.GPG_KEY }}
+        passphrase: ${{ secrets.GPG_KEY_PASSPHRASE }}
     - name: Publish to GitHub Packages
       run: gradle publish
       env:
         GITHUB_ACTOR: ${{ github.actor }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GPG_KEY: ${{ secrets.GPG_KEY }}
-        GPG_KEY_PASSPHRASE: ${{ secrets.GPG_KEY_PASSPHRASE }}
