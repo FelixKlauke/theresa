@@ -1,7 +1,6 @@
 package de.d3adspace.theresa.lifecycle.listener;
 
 import com.google.inject.spi.ProvisionListener;
-import de.d3adspace.theresa.lifecycle.LifeCycle;
 import de.d3adspace.theresa.lifecycle.LifeCycleFactory;
 import de.d3adspace.theresa.lifecycle.LifeCycleRegistry;
 
